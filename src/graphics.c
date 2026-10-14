@@ -1712,8 +1712,11 @@ const u16 gStatusPal_Icons[] = INCGFX_U16("graphics/interface/status_icons.png",
 const u16 gCategoryIcons_Pal[] = INCGFX_U16("graphics/interface/category_icons.png", ".gbapal");
 const u32 gCategoryIcons_Gfx[] = INCGFX_U32("graphics/interface/category_icons.png", ".4bpp.smol");
 
-const u32 gMoveTypes_Gfx[] = INCGFX_U32("graphics/types/move_types.4bpp", ".smol");
-const u16 gMoveTypes_Pal[] = INCBIN_U16("graphics/types/move_types.gbapal");
+// Modern-style type icons (Team Aquas asset repo). Vanilla icons are still
+// built as graphics/types/move_types.* and remain available for the 8x16
+// in-battle icons in type_icons.c.
+const u32 gMoveTypes_Gfx[] = INCGFX_U32("graphics/types_modern/move_types.4bpp", ".smol");
+const u16 gMoveTypes_Pal[] = INCBIN_U16("graphics/types_modern/move_types.gbapal");
 
 const u32 gSummaryMoveSelect_Gfx[] = INCGFX_U32("graphics/summary_screen/move_select.png", ".4bpp.smol");
 const u16 gSummaryMoveSelect_Pal[] = INCGFX_U16("graphics/summary_screen/move_select.png", ".gbapal");

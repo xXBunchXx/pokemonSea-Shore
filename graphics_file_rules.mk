@@ -4,6 +4,7 @@ UNUSEDGFXDIR := graphics/unused
 BATINTGFXDIR := graphics/battle_interface
 BATTRANSGFXDIR := graphics/battle_transitions
 TYPESGFXDIR := graphics/types
+TYPESMODERNGFXDIR := graphics/types_modern
 ROULETTEGFXDIR := graphics/roulette
 SLOTMACHINEGFXDIR := graphics/slot_machine
 PKNAVOPTIONSGFXDIR := graphics/pokenav/options
@@ -101,6 +102,17 @@ $(TYPESGFXDIR)/move_types.4bpp: $(types:%=$(TYPESGFXDIR)/%.4bpp) $(contest_types
 $(TYPESGFXDIR)/move_types.gbapal: $(TYPESGFXDIR)/move_types_1.gbapal \
                                   $(TYPESGFXDIR)/move_types_2.gbapal \
                                   $(TYPESGFXDIR)/move_types_3.gbapal
+	@cat $^ >$@
+
+# Lhea's modern-style type icons (Team Aquas asset repo). These carry their own
+# palettes, so they are kept as a separate sheet instead of overwriting the
+# vanilla icons in $(TYPESGFXDIR).
+$(TYPESMODERNGFXDIR)/move_types.4bpp: $(types:%=$(TYPESMODERNGFXDIR)/%.4bpp) $(contest_types:%=$(TYPESMODERNGFXDIR)/contest_%.4bpp)
+	@cat $^ >$@
+
+$(TYPESMODERNGFXDIR)/move_types.gbapal: $(TYPESMODERNGFXDIR)/move_types_1.gbapal \
+                                        $(TYPESMODERNGFXDIR)/move_types_2.gbapal \
+                                        $(TYPESMODERNGFXDIR)/move_types_3.gbapal
 	@cat $^ >$@
 
 $(ROULETTEGFXDIR)/roulette_tilt.4bpp: $(ROULETTEGFXDIR)/shroomish.4bpp \
